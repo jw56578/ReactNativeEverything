@@ -9,45 +9,73 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Image,
+  TextInput,ListView,ScrollView,Button,Navigator
 } from 'react-native';
+import Menu, { MenuContext, MenuOptions, MenuOption, MenuTrigger } from 'react-native-menu';
+import MyScene from './App/MyScene';
+import TopMenu from './App/TopMenu';
+import SwipeScene from './App/SwipeScene';
+
+const App = () => (
+  // You need to place a MenuContext somewhere in your application, usually at the root. 
+  // Menus will open within the context, and only one menu can open at a time per context. 
+  <MenuContext style={{ flex: 1 }}>
+    <TopMenu/>
+    <SwipeScene/>
+  </MenuContext>
+);
+ 
+
 
 export default class FirstReactNativeApp extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
+
+    render(){
+        return(<App/>)
+    }
+
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+    container:{
+        flex:1,
+        borderWidth:3,
+        borderColor:'green',
+        flexDirection:'column',
+        paddingTop:10
+
+    },
+    column1:{
+    
+    },
+    column2:{
+ 
+    },
+    input:{
+      height:60,
+      borderWidth:1,
+      borderRadius:5,
+      borderColor:'black',
+      textAlign:'center',
+      margin:10,
+      paddingTop:20,
+      paddingBottom:10
+
+    },
+    item:{
+    borderColor:'red',
+     borderWidth:2   
+
+
+    },
+    item2:{
+     borderColor:'black',
+     borderWidth:2,
+     flexDirection:'column',
+    }
+})
+
+
 
 AppRegistry.registerComponent('FirstReactNativeApp', () => FirstReactNativeApp);
