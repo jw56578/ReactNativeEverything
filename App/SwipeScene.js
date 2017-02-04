@@ -57,9 +57,9 @@ var currentExercise = null;
 var history  = null;
 
 
-AsyncStorage.getItem("@MyStore:history").then((value) => {
-  init(value);
-}).done();
+//AsyncStorage.getItem("@MyStore:history").then((value) => {
+  init(null);
+//}).done();
 
 function init(h){
   if(!h){
@@ -91,9 +91,7 @@ function init(h){
                   ]
                 }
               ]
-    AsyncStorage.setItem("@MyStore:history",JSON.stringify(history)).then((value) => {
-      init(value);
-    }).done();
+    AsyncStorage.setItem("@MyStore:history",JSON.stringify(history));
   }else{
     history =  JSON.parse(h);
   }
@@ -151,6 +149,7 @@ export default SwipeScene =  React.createClass({
      this.swiper.scrollBy(1,true);
      createNewExercise(id,name);
      var prevExercise = getPreviousExercise(history);
+     prevExercise = prevExercise || {sets:[]};
      this.setState({previousExercise:prevExercise,currentExercise:currentExercise});
   },
   render: function() {
