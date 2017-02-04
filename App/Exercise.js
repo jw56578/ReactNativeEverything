@@ -4,7 +4,7 @@ import { View, Text, Navigator ,TouchableHighlight,TextInput} from 'react-native
 
 function createPreviousExerciseRow(set,index){
   return (
-      <View key={set.id}  style={{height: 30, flexDirection:'row'}} >
+      <View key={set.id}  style={{height: 60, flexDirection:'row'}} >
         <View style={{flex:1}}><Text>{set.reps}</Text></View>
         <View style={{flex:1}}><Text>{set.weight}</Text></View>
       </View>
@@ -16,7 +16,7 @@ function createExerciseRow(set,index){
       <View style={{flex:1}}>
         <TextInput
           keyboardType="numeric"
-          style={{height: 30, borderColor: 'gray', borderWidth: 1}}
+          style={{height: 60, borderColor: 'gray', borderWidth: 1}}
           onChangeText={handleRepsChanged.bind(this,set,index)}
           value={set.reps.toString()}
         />
@@ -24,7 +24,7 @@ function createExerciseRow(set,index){
       <View style={{flex:1}}>
         <TextInput
           keyboardType="numeric"
-          style={{height: 30, borderColor: 'gray', borderWidth: 1}}
+          style={{height: 60, borderColor: 'gray', borderWidth: 1}}
           onChangeText={handleWeightChanged.bind(this,set,index)}
           value={set.weight.toString()}
         />
